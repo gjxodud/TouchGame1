@@ -66,6 +66,7 @@ public class TouchGame extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
             intent.putExtra("count",count);
             startActivity(intent);
+            this.finish();
         }
     }
 
