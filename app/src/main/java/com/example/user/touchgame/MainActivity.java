@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void ten(View v){
         Intent intent = new Intent(getApplicationContext(), TouchGame.class);
-        intent.putExtra("second",5);
+        intent.putExtra("second",10);
         startActivity(intent);
     }
 }

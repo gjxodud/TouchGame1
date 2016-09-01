@@ -21,7 +21,7 @@ public class TouchGame extends AppCompatActivity {
         textView1 = (TextView) findViewById(R.id.textView);
         timeText = (TextView)findViewById(R.id.timeText);
         Intent intent = getIntent();
-        second = intent.getIntExtra("second",5);
+        second = intent.getIntExtra("second",10);
         ThreadStart();
     }
 
@@ -62,7 +62,7 @@ public class TouchGame extends AppCompatActivity {
 
             }
         }
-        if(i==second*10){
+        if(i>=second*10){
             Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
             intent.putExtra("count",count);
             startActivity(intent);
