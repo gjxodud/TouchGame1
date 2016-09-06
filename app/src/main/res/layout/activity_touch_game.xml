@@ -5,6 +5,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".TouchGame">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="시작하려면 터치"
+        android:id="@+id/touch"/>
+
 
     <TextView
         android:layout_width="wrap_content"

@@ -11,10 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 public class TouchGame extends AppCompatActivity {
     private int count=0;
+    private boolean isStart = false;
     TextView textView1;
     TextView timeText;
     private int second;
-    private int[] global_num;
+    private int s;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_touch_game);
@@ -22,11 +23,15 @@ public class TouchGame extends AppCompatActivity {
         timeText = (TextView)findViewById(R.id.timeText);
         Intent intent = getIntent();
         second = intent.getIntExtra("second",10);
-        ThreadStart();
+        s = second;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent e){
+        if(!isStart){
+            ThreadStart();
+            isStart = true;
+        }
         switch(e.getAction()){
             case MotionEvent.ACTION_DOWN:
                 count++;
@@ -65,6 +70,7 @@ public class TouchGame extends AppCompatActivity {
         if(i>=second*10){
             Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
             intent.putExtra("count",count);
+            intent.putExtra("second",s);
             startActivity(intent);
             this.finish();
         }
