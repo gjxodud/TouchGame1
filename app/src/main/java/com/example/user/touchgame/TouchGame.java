@@ -75,4 +75,7 @@ public class TouchGame extends AppCompatActivity {
             timeText.setText(""+msg.what);
         };
     };
+
+    public void onBackPressed(){
+    }
 }
