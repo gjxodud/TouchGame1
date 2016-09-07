@@ -96,7 +96,4 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-    public void home(View v){
-        this.finish();
-    }
 }

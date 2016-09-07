@@ -31,6 +31,8 @@ public class TouchGame extends AppCompatActivity {
         if(!isStart){
             ThreadStart();
             isStart = true;
+            TextView tv = (TextView)findViewById(R.id.touch);
+            tv.setText("");
         }
         switch(e.getAction()){
             case MotionEvent.ACTION_DOWN:
