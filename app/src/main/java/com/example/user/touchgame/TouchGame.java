@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 public class TouchGame extends AppCompatActivity {
     private int count=0;
@@ -34,14 +35,17 @@ public class TouchGame extends AppCompatActivity {
             TextView tv = (TextView)findViewById(R.id.touch);
             tv.setText("");
         }
+        RelativeLayout container = (RelativeLayout)findViewById(R.id.container);
         switch(e.getAction()){
             case MotionEvent.ACTION_DOWN:
                 count++;
                 textView1.setText(""+count);
+                container.setBackgroundResource(R.drawable.game1);
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
                 count++;
                 textView1.setText(""+count);
+                container.setBackgroundResource(R.drawable.game2);
                 break;
         }
 

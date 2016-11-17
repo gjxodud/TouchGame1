@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
-//TODO: 랭킹 구현, 꾸미기
+//TODO: 내 점수와 초 출력 다른 textview 사용하기
     private TextView tv, r1, r2, r3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +23,14 @@ public class ResultActivity extends AppCompatActivity {
 
         String co;
         if(count<0) co = "";
-        else co = ""+count;
+        else co = "내 점수 "+count;
 
         tv=(TextView)findViewById(R.id.textView2);
         r1=(TextView)findViewById(R.id.textView3);
         r2=(TextView)findViewById(R.id.textView4);
         r3=(TextView)findViewById(R.id.textView5);
 
-        tv.setText(second+"s "+co);
+        tv.setText(second+"초\n\n"+co);
 
         SharedPreferences sp = getSharedPreferences("sp",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -54,40 +54,41 @@ public class ResultActivity extends AppCompatActivity {
         if(count >= 0){
             if(second == 5){
 
-                if(count>f){
+                if(count>=f){
                     t=s;
                     s=f;
                     f=count;
-                    editor.putInt("f5",count);
                     r1.setTextColor(Color.parseColor("#FF0000"));
-                }else if(count>s){
+                }else if(count>=s){
                     t=s;
                     s=count;
-                    editor.putInt("s5",count);
                     r2.setTextColor(Color.parseColor("#FF0000"));
-                }else if(count>t){
+                }else if(count>=t){
                     t=count;
-                    editor.putInt("t5",count);
                     r3.setTextColor(Color.parseColor("#FF0000"));
                 }
 
+                editor.putInt("f5",f);
+                editor.putInt("s5",s);
+                editor.putInt("t5",t);
+
             }else{
-                if(count>f){
+                if(count>=f){
                     t=s;
                     s=f;
                     f=count;
-                    editor.putInt("f",count);
                     r1.setTextColor(Color.parseColor("#FF0000"));
-                }else if(count>s){
+                }else if(count>=s){
                     t=s;
                     s=count;
-                    editor.putInt("s",count);
                     r2.setTextColor(Color.parseColor("#FF0000"));
-                }else if(count>t){
+                }else if(count>=t){
                     t=count;
-                    editor.putInt("t",count);
                     r3.setTextColor(Color.parseColor("#FF0000"));
                 }
+                editor.putInt("f",f);
+                editor.putInt("s",s);
+                editor.putInt("t",t);
             }
             r1.setText("1. "+f);
             r2.setText("2. "+s);

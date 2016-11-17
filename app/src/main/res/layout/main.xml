@@ -8,38 +8,44 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.user.touchgame.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/main"
+    android:gravity="right">
 
     <Button
         android:layout_marginTop="300dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5초"
+        android:layout_width="193dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/five"
-        android:layout_gravity="center_horizontal"
-        android:onClick="five"/>
+        android:onClick="five"
+        android:background="@drawable/b5"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10초"
+        android:layout_width="193dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/ten"
-        android:layout_gravity="center_horizontal"
-        android:onClick="ten"/>
+        android:onClick="ten"
+        android:background="@drawable/b10"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5초 점수"
+        android:layout_width="193dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/score5"
-        android:layout_gravity="center_horizontal"
-        android:onClick="score"/>
+        android:onClick="score"
+        android:background="@drawable/s5"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10초 점수"
+        android:layout_width="193dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/score10"
-        android:layout_gravity="center_horizontal"
-        android:onClick="score"/>
+        android:onClick="score"
+        android:background="@drawable/s10"/>
 </LinearLayout>

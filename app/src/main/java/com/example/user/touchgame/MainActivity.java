@@ -8,7 +8,7 @@ import android.text.method.Touch;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
+//TODO: 클릭 시 버튼 변화주기
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void score(View v){
         Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-        intent.putExtra("count",-1);;
+        intent.putExtra("count",-1);
         if(v.getId() == R.id.score5){
             intent.putExtra("second",5);
         }else{
