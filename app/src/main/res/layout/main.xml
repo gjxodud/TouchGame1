@@ -11,6 +11,7 @@
     android:orientation="vertical">
 
     <Button
+        android:layout_marginTop="300dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5초"
@@ -25,4 +26,20 @@
         android:id="@+id/ten"
         android:layout_gravity="center_horizontal"
         android:onClick="ten"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5초 점수"
+        android:id="@+id/score5"
+        android:layout_gravity="center_horizontal"
+        android:onClick="score"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10초 점수"
+        android:id="@+id/score10"
+        android:layout_gravity="center_horizontal"
+        android:onClick="score"/>
 </LinearLayout>

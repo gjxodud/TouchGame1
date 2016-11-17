@@ -27,4 +27,15 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("second",10);
         startActivity(intent);
     }
+
+    public void score(View v){
+        Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+        intent.putExtra("count",-1);;
+        if(v.getId() == R.id.score5){
+            intent.putExtra("second",5);
+        }else{
+            intent.putExtra("second",10);
+        }
+        startActivity(intent);
+    }
 }

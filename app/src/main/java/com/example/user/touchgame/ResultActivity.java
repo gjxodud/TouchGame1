@@ -18,14 +18,19 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.result);
 
         Intent intent = getIntent();
-        int count = intent.getIntExtra("count",0);
+        int count = intent.getIntExtra("count",-1);
         int second = intent.getIntExtra("second",5);
+
+        String co;
+        if(count<0) co = "";
+        else co = ""+count;
+
         tv=(TextView)findViewById(R.id.textView2);
         r1=(TextView)findViewById(R.id.textView3);
         r2=(TextView)findViewById(R.id.textView4);
         r3=(TextView)findViewById(R.id.textView5);
 
-        tv.setText(second+"s "+count);
+        tv.setText(second+"s "+co);
 
         SharedPreferences sp = getSharedPreferences("sp",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -46,54 +51,49 @@ public class ResultActivity extends AppCompatActivity {
         r3.setText("3. "+t);
 
 
+        if(count >= 0){
+            if(second == 5){
 
+                if(count>f){
+                    t=s;
+                    s=f;
+                    f=count;
+                    editor.putInt("f5",count);
+                    r1.setTextColor(Color.parseColor("#FF0000"));
+                }else if(count>s){
+                    t=s;
+                    s=count;
+                    editor.putInt("s5",count);
+                    r2.setTextColor(Color.parseColor("#FF0000"));
+                }else if(count>t){
+                    t=count;
+                    editor.putInt("t5",count);
+                    r3.setTextColor(Color.parseColor("#FF0000"));
+                }
 
-        if(second == 5){
-
-            if(count>f){
-                f=count;
-                editor.putInt("f5",count);
-                r1.setText("1. "+f);
-                r1.setTextColor(Color.parseColor("#FF0000"));
-            }else if(count>s){
-                s=count;
-                editor.putInt("s5",count);
-                r2.setText("2. "+s);
-                r2.setTextColor(Color.parseColor("#FF0000"));
-            }else if(count>t){
-                t=count;
-                editor.putInt("t5",count);
-                r3.setText("3. "+t);
-                r3.setTextColor(Color.parseColor("#FF0000"));
+            }else{
+                if(count>f){
+                    t=s;
+                    s=f;
+                    f=count;
+                    editor.putInt("f",count);
+                    r1.setTextColor(Color.parseColor("#FF0000"));
+                }else if(count>s){
+                    t=s;
+                    s=count;
+                    editor.putInt("s",count);
+                    r2.setTextColor(Color.parseColor("#FF0000"));
+                }else if(count>t){
+                    t=count;
+                    editor.putInt("t",count);
+                    r3.setTextColor(Color.parseColor("#FF0000"));
+                }
             }
-
-        }else{
-
-            if(count>f){
-                t=s;
-                s=f;
-                f=count;
-                editor.putInt("f",count);
-                r1.setText("1. "+f);
-                r1.setTextColor(Color.parseColor("#FF0000"));
-            }else if(count>s){
-                t=s;
-                s=count;
-                editor.putInt("s",count);
-                r2.setText("2. "+s);
-                r2.setTextColor(Color.parseColor("#FF0000"));
-            }else if(count>t){
-                t=count;
-                editor.putInt("t",count);
-                r3.setText("3. "+t);
-                r3.setTextColor(Color.parseColor("#FF0000"));
-            }
+            r1.setText("1. "+f);
+            r2.setText("2. "+s);
+            r3.setText("3. "+t);
+            editor.apply();
         }
-
-        editor.apply();
-
-
-
     }
 
 }
